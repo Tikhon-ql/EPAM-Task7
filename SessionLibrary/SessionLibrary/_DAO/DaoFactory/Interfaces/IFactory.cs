@@ -61,5 +61,10 @@ namespace SessionLibrary.DaoFactory.Interfaces
         /// </summary>
         /// <returns></returns>
         IDao<SessionType> GetSessionTypeCreator();
+        /// <summary>
+        /// Get examiner's creator method
+        /// </summary>
+        /// <returns></returns>
+        IDao<Examiner> GetExaminerCreator();
     }
 }

@@ -16,3 +16,12 @@ C:\Users\Developer\Desktop\EPAM-Task6-master\SessionLibrary\SessionLibrary\bin\D
 C:\Users\Developer\Desktop\EPAM-Task6-master\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csproj.CopyComplete
 C:\Users\Developer\Desktop\EPAM-Task6-master\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csprojAssemblyReference.cache
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csprojAssemblyReference.cache
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\bin\Debug\SessionLibrary.dll
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\bin\Debug\SessionLibrary.pdb
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\bin\Debug\EPPlus.dll
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\bin\Debug\EPPlus.xml
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csprojAssemblyReference.cache
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csproj.CoreCompileInputs.cache
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csproj.CopyComplete
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.dll
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.pdb

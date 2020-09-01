@@ -37,8 +37,12 @@ namespace SessionLibrary.ORM.Session
         /// Session's id property
         /// </summary>
         public int SessionId { get; set; }
+        /// <summary>
+        /// Examiner's id property
+        /// </summary>
+        public int ExaminerId { get; set; }
 
-        public SessionShedule(int id, int groupId, DateTime date, int workTypeId, int subjectId, int sesId)
+        public SessionShedule(int id, int groupId, DateTime date, int workTypeId, int subjectId, int sesId,int examierId)
         {
             Id = id;
             GroupId = groupId;
@@ -46,6 +50,7 @@ namespace SessionLibrary.ORM.Session
             SubjectId = subjectId;
             WorkTypeId = workTypeId;
             SessionId = sesId;
+            ExaminerId = examierId;
         }
     }
 }

@@ -89,5 +89,9 @@ namespace SessionLibrary.DaoFactory.Models
             return new WorkTypeCreator(connectionString);
         }
 
+        public IDao<Examiner> GetExaminerCreator()
+        {
+            return new ExaminerCreator(connectionString);
+        }
     }
 }

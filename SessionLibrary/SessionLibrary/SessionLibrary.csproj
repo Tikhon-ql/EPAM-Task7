@@ -63,6 +63,7 @@
     <Compile Include="Excel\Models\ExcelWorker.cs" />
     <Compile Include="Excel\Models\DropoutStudentsGetter.cs" />
     <Compile Include="Excel\Models\SessionResultGetter.cs" />
+    <Compile Include="ORM\Another\Examiner.cs" />
     <Compile Include="_DAO\Interface\IDao.cs" />
     <Compile Include="_DAO\Models\Dao.cs" />
     <Compile Include="_DAO\DaoFactory\Interfaces\IFactory.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="ORM\Another\Subject.cs" />
     <Compile Include="ORM\Work\WorkType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_DAO\Models\ExaminerCreator.cs" />
     <Compile Include="_DAO\Models\GenderCreator.cs" />
     <Compile Include="_DAO\Models\GroupCreator.cs" />
     <Compile Include="_DAO\Models\SessionCreator.cs" />
