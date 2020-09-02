@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
@@ -65,7 +66,6 @@
     <Compile Include="Excel\Models\SessionResultGetter.cs" />
     <Compile Include="ORM\Another\Examiner.cs" />
     <Compile Include="_DAO\Interface\IDao.cs" />
-    <Compile Include="_DAO\Models\Dao.cs" />
     <Compile Include="_DAO\DaoFactory\Interfaces\IFactory.cs" />
     <Compile Include="_DAO\DaoFactory\Models\Factory.cs" />
     <Compile Include="ORM\Another\Gender.cs" />

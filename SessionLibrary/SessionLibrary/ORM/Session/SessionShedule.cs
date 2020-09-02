@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -11,35 +12,43 @@ namespace SessionLibrary.ORM.Session
     /// <summary>
     /// Session shedule's class
     /// </summary>
+    [Table(Name = "SessionShedule")]
     public class SessionShedule
     {
         /// <summary>
         /// Session shedule's id property
         /// </summary>
+        [Column(IsPrimaryKey = true)]
         public int Id { get; private set; }
         /// <summary>
         /// Groups's id property
         /// </summary>
+        [Column(Name = "GroupId")]
         public int GroupId { get; private set; }
         /// <summary>
         /// Work's date property
         /// </summary>
+        [Column(Name = "Date")]
         public DateTime Date { get; set; }
         /// <summary>
         /// Subject's id 
         /// </summary>
+        [Column(Name = "SubjectId")]
         public int SubjectId { get; set; }
         /// <summary>
         /// Work type's id
         /// </summary>
+        [Column(Name = "WorkTypeId")]
         public int WorkTypeId { get; set; }
         /// <summary>
         /// Session's id property
         /// </summary>
+        [Column(Name = "SessionId")]
         public int SessionId { get; set; }
         /// <summary>
         /// Examiner's id property
         /// </summary>
+        [Column(Name = "ExaminerId")]
         public int ExaminerId { get; set; }
 
         public SessionShedule(int id, int groupId, DateTime date, int workTypeId, int subjectId, int sesId,int examierId)
