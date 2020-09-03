@@ -66,5 +66,6 @@ namespace SessionLibrary.DaoFactory.Interfaces
         /// </summary>
         /// <returns></returns>
         IDao<Examiner> GetExaminerCreator();
+        IDao<Specification> GetSpecificationCreator();
     }
 }

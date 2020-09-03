@@ -93,5 +93,9 @@ namespace SessionLibrary.DaoFactory.Models
         {
             return new ExaminerCreator(connectionString);
         }
+        public IDao<Specification> GetSpecificationCreator()
+        {
+            return new SpecificationCreator(connectionString);
+        }
     }
 }

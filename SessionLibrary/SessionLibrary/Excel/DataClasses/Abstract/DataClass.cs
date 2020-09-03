@@ -52,6 +52,9 @@ namespace SessionLibrary.Excel.DataClasses.Abstract
         /// All session types
         /// </summary>
         public ICollection<SessionType> SessionTypes { get; set; }
+        public ICollection<Examiner> Examiners { get; set; }
+        public ICollection<Specification> Specifications { get; set; }
+
         public DataClass(string connect)
         {
             SessionFactory factory = SessionFactory.GetInstence(connect);
@@ -64,6 +67,8 @@ namespace SessionLibrary.Excel.DataClasses.Abstract
             Subjects = factory.GetSubjectCreator().GetAll();
             SessionTypes = factory.GetSessionTypeCreator().GetAll();
             SessionShedules = factory.GetSessionSheduleCreator().GetAll();
+            Examiners = factory.GetExaminerCreator().GetAll();
+            Specifications = factory.GetSpecificationCreator().GetAll();
         }
     }
 }

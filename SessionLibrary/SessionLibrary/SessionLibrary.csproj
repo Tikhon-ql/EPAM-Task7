@@ -65,6 +65,7 @@
     <Compile Include="Excel\Models\DropoutStudentsGetter.cs" />
     <Compile Include="Excel\Models\SessionResultGetter.cs" />
     <Compile Include="ORM\Another\Examiner.cs" />
+    <Compile Include="ORM\Another\Specification.cs" />
     <Compile Include="_DAO\Interface\IDao.cs" />
     <Compile Include="_DAO\DaoFactory\Interfaces\IFactory.cs" />
     <Compile Include="_DAO\DaoFactory\Models\Factory.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="_DAO\Models\SessionCreator.cs" />
     <Compile Include="_DAO\Models\SessionSheduleCreator.cs" />
     <Compile Include="_DAO\Models\SessionTypeCreator.cs" />
+    <Compile Include="_DAO\Models\SpecificationCreator.cs" />
     <Compile Include="_DAO\Models\StudentCreator.cs" />
     <Compile Include="_DAO\Models\SubjectCreator.cs" />
     <Compile Include="_DAO\Models\WorkResultCreator.cs" />

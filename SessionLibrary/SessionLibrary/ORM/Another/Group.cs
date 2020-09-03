@@ -28,11 +28,14 @@ namespace SessionLibrary.ORM.Another
         /// </summary>
         [Column(Name = "GroupName")]
         public string GroupName { get; set; }
+        [Column(Name = "SpecificationId")]
+        public int SpecificationId { get; set; }
 
-        public Group(int id, string groupName)
+        public Group(int id, string groupName,int specificationid)
         {
             Id = id;
             GroupName = groupName;
+            SpecificationId = specificationid;
         }
     }
 }
