@@ -31,5 +31,9 @@ namespace SessionLibrary.ORM.Another
             Id = id;
             GenderName = genderName;
         }
+        public Gender()
+        {
+
+        }
     }
 }

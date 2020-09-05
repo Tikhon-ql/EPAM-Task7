@@ -98,6 +98,28 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        [TestMethod]
+        public void ExcelWriteAverageMarkBySpecification()
+        {
+            //arrange
+            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(builder.ConnectionString);
+            List<AverageMarkBySpecification> results = getter.GetAverageMark(1).ToList();
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkBySpecification.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
+        public void ExcelWriteAverageMarkByExaminer()
+        {
+            //arrange
+            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(builder.ConnectionString);
+            List<AverageMarkByExaminer> results = getter.GetAverageMark(1).ToList();
 
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkByExaminer.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
     }
 }

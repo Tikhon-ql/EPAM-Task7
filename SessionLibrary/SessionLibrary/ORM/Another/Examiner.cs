@@ -26,5 +26,11 @@ namespace SessionLibrary.ORM.Another
             Surname = surname;
             MidleName = midleName;
         }
+        public Examiner()
+        {
+
+        }
+
+
     }
 }

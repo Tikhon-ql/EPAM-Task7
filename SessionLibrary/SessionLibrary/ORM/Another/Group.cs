@@ -37,5 +37,26 @@ namespace SessionLibrary.ORM.Another
             GroupName = groupName;
             SpecificationId = specificationid;
         }
+        public Group()
+        {
+
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Group group &&
+                   Id == group.Id &&
+                   GroupName == group.GroupName &&
+                   SpecificationId == group.SpecificationId;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 551239054;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GroupName);
+            hashCode = hashCode * -1521134295 + SpecificationId.GetHashCode();
+            return hashCode;
+        }
     }
 }

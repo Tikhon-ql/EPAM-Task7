@@ -142,5 +142,65 @@ namespace SessionLibrary.Excel.Models
                 return false;
             }
         }
+        public static bool Write(string filename, ICollection<AverageMarkBySpecification> collection)
+        {
+            try
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
+                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Created = DateTime.Now;
+                string[] headers = { "Specification", "Average mark"};
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(collection.ToList()[0].GetSessionName());
+                for (int i = 1; i <= headers.Length; i++)
+                {
+                    worksheet.Cells[1, i].Value = headers[i - 1];
+                    worksheet.Cells[1, i].Style.Font.Bold = true;
+                    worksheet.Column(i).Width = headers.Length * 5;
+                }
+                for (int i = 2, j = 0; j < collection.Count; i++, j++)
+                {
+                    worksheet.Cells[i, 1].Value = collection.ToList()[j].Specifcation.ToString();
+                    worksheet.Cells[i, 2].Value = collection.ToList()[j].AverageMark.ToString();
+                }
+                FileInfo fi = new FileInfo(filename);
+                package.SaveAs(fi);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool Write(string filename, ICollection<AverageMarkByExaminer> collection)
+        {
+            //try
+            //{
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
+                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Created = DateTime.Now;
+                string[] headers = { "Examiner name", "Average mark" };
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(collection.ToList()[0].GetSessionName());
+                for (int i = 1; i <= headers.Length; i++)
+                {
+                    worksheet.Cells[1, i].Value = headers[i - 1];
+                    worksheet.Cells[1, i].Style.Font.Bold = true;
+                    worksheet.Column(i).Width = 20;
+                }
+                for (int i = 2, j = 0; j < collection.Count; i++, j++)
+                {
+                    worksheet.Cells[i, 1].Value = collection.ToList()[j].ExaminerName.ToString();
+                    worksheet.Cells[i, 2].Value = collection.ToList()[j].AverageMark.ToString();
+                }
+                FileInfo fi = new FileInfo(filename);
+                package.SaveAs(fi);
+                return true;
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
+        }
     }
 }

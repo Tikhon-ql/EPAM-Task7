@@ -61,5 +61,34 @@ namespace SessionLibrary.ORM.Session
             SessionId = sesId;
             ExaminerId = examierId;
         }
+        public SessionShedule()
+        {
+
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is SessionShedule shedule &&
+                   Id == shedule.Id &&
+                   GroupId == shedule.GroupId &&
+                   Date == shedule.Date &&
+                   SubjectId == shedule.SubjectId &&
+                   WorkTypeId == shedule.WorkTypeId &&
+                   SessionId == shedule.SessionId &&
+                   ExaminerId == shedule.ExaminerId;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1940496566;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + GroupId.GetHashCode();
+            hashCode = hashCode * -1521134295 + Date.GetHashCode();
+            hashCode = hashCode * -1521134295 + SubjectId.GetHashCode();
+            hashCode = hashCode * -1521134295 + WorkTypeId.GetHashCode();
+            hashCode = hashCode * -1521134295 + SessionId.GetHashCode();
+            hashCode = hashCode * -1521134295 + ExaminerId.GetHashCode();
+            return hashCode;
+        }
     }
 }
