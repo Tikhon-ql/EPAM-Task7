@@ -28,7 +28,6 @@ namespace SessionLibrary.ORM.Another
         public override bool Equals(object obj)
         {
             return obj is Specification specification &&
-                   Id == specification.Id &&
                    SpecificationName == specification.SpecificationName;
         }
 

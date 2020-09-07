@@ -84,7 +84,9 @@ namespace SessionLibrary._DAO.Models
                     Session ses = db.GetTable<Session>().FirstOrDefault(s => s.Id == value.Id);
                     if (ses != null)
                     {
-                        ses = value;
+                        ses.Id = value.Id;
+                        ses.AcademicYear = value.AcademicYear;
+                        ses.SessionTypeId = value.SessionTypeId;
                         db.SubmitChanges();
                     }
                 }

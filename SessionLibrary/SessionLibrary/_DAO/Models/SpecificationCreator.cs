@@ -78,7 +78,8 @@ namespace SessionLibrary._DAO.Models
                     Specification gn = db.GetTable<Specification>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.SpecificationName = value.SpecificationName;
                         db.SubmitChanges();
                     }
                 }

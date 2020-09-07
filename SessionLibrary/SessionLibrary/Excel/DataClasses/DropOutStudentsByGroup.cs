@@ -24,5 +24,10 @@ namespace SessionLibrary.Excel.DataClasses
             GroupName = groupName;
             DropoutStudent = new List<DropoutStudent>();
         }
+        public DropOutStudentsByGroup(string groupName,params DropoutStudent[] students)
+        {
+            GroupName = groupName;
+            DropoutStudent = students.ToList();
+        }
     }
 }

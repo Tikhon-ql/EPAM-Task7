@@ -84,7 +84,8 @@ namespace SessionLibrary._DAO.Models
                     WorkType gn = db.GetTable<WorkType>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.WorkTypeName = value.WorkTypeName;
                         db.SubmitChanges();
                     }
                 }

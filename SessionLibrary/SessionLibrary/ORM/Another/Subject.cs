@@ -17,7 +17,7 @@ namespace SessionLibrary.ORM.Another
         /// Subject's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         /// <summary>
         /// Subject's name property
         /// </summary>
@@ -37,7 +37,6 @@ namespace SessionLibrary.ORM.Another
         public override bool Equals(object obj)
         {
             return obj is Subject subject &&
-                   Id == subject.Id &&
                    SubjectName == subject.SubjectName;
         }
 

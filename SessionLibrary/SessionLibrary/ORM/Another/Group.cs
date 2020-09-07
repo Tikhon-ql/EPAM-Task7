@@ -21,7 +21,7 @@ namespace SessionLibrary.ORM.Another
         /// Group's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         
         /// <summary>
         /// Group's name property
@@ -45,7 +45,6 @@ namespace SessionLibrary.ORM.Another
         public override bool Equals(object obj)
         {
             return obj is Group group &&
-                   Id == group.Id &&
                    GroupName == group.GroupName &&
                    SpecificationId == group.SpecificationId;
         }

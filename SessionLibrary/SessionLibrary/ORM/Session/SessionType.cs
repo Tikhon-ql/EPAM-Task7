@@ -17,7 +17,7 @@ namespace SessionLibrary.ORM.Session
         /// Session type's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         /// <summary>
         /// Session type's name property
         /// </summary>
@@ -37,7 +37,6 @@ namespace SessionLibrary.ORM.Session
         public override bool Equals(object obj)
         {
             return obj is SessionType type &&
-                   Id == type.Id &&
                    SessionTypeName == type.SessionTypeName;
         }
 

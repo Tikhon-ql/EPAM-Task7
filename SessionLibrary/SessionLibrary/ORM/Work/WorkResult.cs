@@ -17,7 +17,7 @@ namespace SessionLibrary.ORM.Work
         /// Work result's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         /// <summary>
         /// Student's id property
         /// </summary>
@@ -54,7 +54,6 @@ namespace SessionLibrary.ORM.Work
         public override bool Equals(object obj)
         {
             return obj is WorkResult result &&
-                   Id == result.Id &&
                    StudentId == result.StudentId &&
                    SubjectId == result.SubjectId &&
                    Result == result.Result &&

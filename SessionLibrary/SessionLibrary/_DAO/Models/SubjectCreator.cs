@@ -84,7 +84,8 @@ namespace SessionLibrary._DAO.Models
                     Subject gn = db.GetTable<Subject>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.SubjectName = value.SubjectName;
                         db.SubmitChanges();
                     }
                 }

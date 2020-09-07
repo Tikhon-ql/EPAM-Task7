@@ -20,7 +20,7 @@ namespace SessionLibrary.ORM.Another
         /// Student's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         /// <summary>
         /// Student's name property
         /// </summary>
@@ -40,12 +40,12 @@ namespace SessionLibrary.ORM.Another
         /// Group's id property
         /// </summary>
         [Column(Name = "GroupId")]
-        public int GroupId { get; private set; }
+        public int GroupId { get; set; }
         /// <summary>
         /// Gender's id property
         /// </summary>
         [Column(Name = "GenderId")]
-        public int GenderId { get; private set; }
+        public int GenderId { get;  set; }
 
         public Student()
         {
@@ -65,7 +65,6 @@ namespace SessionLibrary.ORM.Another
         public override bool Equals(object obj)
         {
             return obj is Student student &&
-                   Id == student.Id &&
                    Name == student.Name &&
                    Surname == student.Surname &&
                    MidleName == student.MidleName &&

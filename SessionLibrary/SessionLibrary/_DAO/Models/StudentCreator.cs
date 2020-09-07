@@ -83,7 +83,12 @@ namespace SessionLibrary._DAO.Models
                     Student gn = db.GetTable<Student>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.MidleName = value.MidleName;
+                        gn.Name = value.Name;
+                        gn.Surname = value.Surname;
+                        gn.GroupId = value.GroupId;
+                        gn.GenderId = value.GenderId;
                         db.SubmitChanges();
                     }
                 }

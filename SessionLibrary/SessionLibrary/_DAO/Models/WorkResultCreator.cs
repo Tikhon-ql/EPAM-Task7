@@ -84,7 +84,11 @@ namespace SessionLibrary._DAO.Models
                     WorkResult gn = db.GetTable<WorkResult>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.Result = value.Result;
+                        gn.StudentId = value.StudentId;
+                        gn.SubjectId = value.SubjectId;
+                        gn.WorkTypeId = value.WorkTypeId;
                         db.SubmitChanges();
                     }
                 }

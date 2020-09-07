@@ -93,21 +93,22 @@ namespace SessionLibrary.Excel.Models
                 }
                 result.Add(expel);
             }
+            List<DropOutStudentsByGroup> r = new List<DropOutStudentsByGroup>();
             if (stype == SortType.Ascending)
             {
                 foreach(DropOutStudentsByGroup item in result)
                 {
-                    item.DropoutStudent.OrderBy(func);
+                    r.Add(new DropOutStudentsByGroup(item.GroupName, item.DropoutStudent.OrderBy(func).ToArray()));
                 }
             }
             else
             {
                 foreach (DropOutStudentsByGroup item in result)
                 {
-                    item.DropoutStudent.OrderByDescending(func);
+                    r.Add(new DropOutStudentsByGroup(item.GroupName, item.DropoutStudent.OrderByDescending(func).ToArray()));
                 }
             }
-            return result;
+            return r;
         }
     }
 }

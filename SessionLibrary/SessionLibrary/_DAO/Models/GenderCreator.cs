@@ -84,7 +84,8 @@ namespace SessionLibrary._DAO.Models
                     Gender gn = db.GetTable<Gender>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.GenderName = value.GenderName;
                         db.SubmitChanges();
                     }
                 }

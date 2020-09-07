@@ -19,7 +19,7 @@ namespace SessionLibrary.ORM.Another
         /// Gender's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gender's name property
@@ -34,6 +34,17 @@ namespace SessionLibrary.ORM.Another
         public Gender()
         {
 
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Gender gender &&
+                   GenderName == gender.GenderName;
+        }
+
+        public override int GetHashCode()
+        {
+            return -476022661 + EqualityComparer<string>.Default.GetHashCode(GenderName);
         }
     }
 }

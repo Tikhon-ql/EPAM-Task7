@@ -111,7 +111,7 @@ namespace SessionLibrary.Excel.Models
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
-                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Title = "Dropout students";
                 package.Workbook.Properties.Created = DateTime.Now;
                 string[] headers = { "Name", "Surname", "Midle name" };
                 foreach (DropOutStudentsByGroup item in collection)
@@ -148,7 +148,7 @@ namespace SessionLibrary.Excel.Models
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
-                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Title = "Average mark by specification";
                 package.Workbook.Properties.Created = DateTime.Now;
                 string[] headers = { "Specification", "Average mark"};
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(collection.ToList()[0].GetSessionName());
@@ -174,13 +174,13 @@ namespace SessionLibrary.Excel.Models
         }
         public static bool Write(string filename, ICollection<AverageMarkByExaminer> collection)
         {
-            //try
-            //{
+            try
+            {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
-                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Title = "Average mark by examiner";
                 package.Workbook.Properties.Created = DateTime.Now;
-                string[] headers = { "Examiner name", "Average mark" };
+                string[] headers = { "Examiner's name", "Average mark" };
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(collection.ToList()[0].GetSessionName());
                 for (int i = 1; i <= headers.Length; i++)
                 {
@@ -192,6 +192,40 @@ namespace SessionLibrary.Excel.Models
                 {
                     worksheet.Cells[i, 1].Value = collection.ToList()[j].ExaminerName.ToString();
                     worksheet.Cells[i, 2].Value = collection.ToList()[j].AverageMark.ToString();
+                }
+                FileInfo fi = new FileInfo(filename);
+                package.SaveAs(fi);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool Write(string filename, ICollection<AverageMarksBySubjectsInOneYear> collection)
+        {
+            //try
+            //{
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
+                package.Workbook.Properties.Title = "";
+                package.Workbook.Properties.Created = DateTime.Now;
+                string[] headers = { "Subject", "Average mark" };
+                foreach (AverageMarksBySubjectsInOneYear item in collection)
+                {
+
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(item.Year);
+                    for (int i = 1; i <= headers.Length; i++)
+                    {
+                        worksheet.Cells[1, i].Value = headers[i - 1];
+                        worksheet.Cells[1, i].Style.Font.Bold = true;
+                        worksheet.Column(i).Width = 20;
+                    }
+                    for (int i = 2, j = 0; j < item.AverageMarks.Count; i++, j++)
+                    {
+                        worksheet.Cells[i, 1].Value = item.AverageMarks[j].SubjectName.ToString();
+                        worksheet.Cells[i, 2].Value = item.AverageMarks[j].AverageMark.ToString();
+                    }
                 }
                 FileInfo fi = new FileInfo(filename);
                 package.SaveAs(fi);

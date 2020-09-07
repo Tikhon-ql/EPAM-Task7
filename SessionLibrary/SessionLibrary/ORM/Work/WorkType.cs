@@ -17,7 +17,7 @@ namespace SessionLibrary.ORM.Work
         /// Work type's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
         /// <summary>
         /// Work type' name property
         /// </summary>
@@ -36,7 +36,6 @@ namespace SessionLibrary.ORM.Work
         public override bool Equals(object obj)
         {
             return obj is WorkType type &&
-                   Id == type.Id &&
                    WorkTypeName == type.WorkTypeName;
         }
 

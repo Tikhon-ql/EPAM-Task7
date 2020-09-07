@@ -84,7 +84,13 @@ namespace SessionLibrary._DAO.Models
                     SessionShedule gn = db.GetTable<SessionShedule>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.GroupId = value.GroupId;
+                        gn.SessionId = value.SessionId;
+                        gn.SubjectId = value.SubjectId;
+                        gn.ExaminerId = value.ExaminerId;
+                        gn.Date = value.Date;
+                        gn.WorkTypeId = value.WorkTypeId;
                         db.SubmitChanges();
                     }
                 }

@@ -31,6 +31,22 @@ namespace SessionLibrary.ORM.Another
 
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Examiner examiner &&
+                   Name == examiner.Name &&
+                   Surname == examiner.Surname &&
+                   MidleName == examiner.MidleName;
+        }
 
+        public override int GetHashCode()
+        {
+            int hashCode = 1412885901;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Surname);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(MidleName);
+            return hashCode;
+        }
     }
 }

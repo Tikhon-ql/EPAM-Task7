@@ -110,6 +110,17 @@ namespace SessionLIbraryExcel.Tests
             Assert.IsTrue(flag);
         }
         [TestMethod]
+        public void ExcelWriteWithSortingByAverageMarkAverageMarkBySpecification()
+        {
+            //arrange
+            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(builder.ConnectionString);
+            List<AverageMarkBySpecification> results = getter.GetAverageMark(1,i=>i.AverageMark,SortType.Ascending).ToList();
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkBySpecificationWithSorting.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
         public void ExcelWriteAverageMarkByExaminer()
         {
             //arrange
@@ -118,6 +129,42 @@ namespace SessionLIbraryExcel.Tests
 
             //act
             bool flag = ExcelWorker.Write(@"AverageMarkByExaminer.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
+        public void ExcelWriteWithSortingByAverageMarkAverageMarkByExaminer()
+        {
+            //arrange
+            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(builder.ConnectionString);
+            List<AverageMarkByExaminer> results = getter.GetAverageMark(1,i=>i.AverageMark,SortType.Descending).ToList();
+
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkByExaminerWithSorting.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
+        public void ExcelWriteAverageMarkBySubject()
+        {
+            //arrange
+            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(builder.ConnectionString);
+            List<AverageMarksBySubjectsInOneYear> results = getter.GetAverageMarks().ToList();
+
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkBySubject.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
+        public void ExcelWriteWithSortingDescendingAverageMarkBySubject()
+        {
+            //arrange
+            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(builder.ConnectionString);
+            List<AverageMarksBySubjectsInOneYear> results = getter.GetAverageMarks(r=>r.AverageMark,SortType.Descending).ToList();
+
+            //act
+            bool flag = ExcelWorker.Write(@"AverageMarkBySubjectWithSorting.xlsx", results);
             //assert
             Assert.IsTrue(flag);
         }

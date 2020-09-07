@@ -79,7 +79,11 @@ namespace SessionLibrary._DAO.Models
                     Examiner ex = db.GetTable<Examiner>().FirstOrDefault(e => e.Id == value.Id);
                     if(ex != null)
                     {
-                        ex = value;
+                        ex.Id = value.Id;
+                        ex.MidleName = value.MidleName;
+                        ex.Name = value.Name;
+                        ex.Surname = value.Surname;
+                        
                         db.SubmitChanges();
                     } 
                 }

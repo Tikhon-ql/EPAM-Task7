@@ -84,7 +84,9 @@ namespace SessionLibrary._DAO.Models
                     Group gr = db.GetTable<Group>().FirstOrDefault(g => g.Id == value.Id);
                     if (gr != null)
                     {
-                        gr = value;
+                        gr.Id = value.Id;
+                        gr.GroupName = value.GroupName;
+                        gr.SpecificationId = value.SpecificationId;
                         db.SubmitChanges();
                     }
                 }

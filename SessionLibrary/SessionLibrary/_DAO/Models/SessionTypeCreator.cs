@@ -84,7 +84,8 @@ namespace SessionLibrary._DAO.Models
                     SessionType gn = db.GetTable<SessionType>().FirstOrDefault(g => g.Id == value.Id);
                     if (gn != null)
                     {
-                        gn = value;
+                        gn.Id = value.Id;
+                        gn.SessionTypeName = value.SessionTypeName;
                         db.SubmitChanges();
                     }
                 }

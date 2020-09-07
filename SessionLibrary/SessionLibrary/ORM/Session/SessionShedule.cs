@@ -19,12 +19,12 @@ namespace SessionLibrary.ORM.Session
         /// Session shedule's id property
         /// </summary>
         [Column(IsPrimaryKey = true)]
-        public int Id { get; private set; }
+        public int Id { get;  set; }
         /// <summary>
         /// Groups's id property
         /// </summary>
         [Column(Name = "GroupId")]
-        public int GroupId { get; private set; }
+        public int GroupId { get;  set; }
         /// <summary>
         /// Work's date property
         /// </summary>
@@ -69,7 +69,6 @@ namespace SessionLibrary.ORM.Session
         public override bool Equals(object obj)
         {
             return obj is SessionShedule shedule &&
-                   Id == shedule.Id &&
                    GroupId == shedule.GroupId &&
                    Date == shedule.Date &&
                    SubjectId == shedule.SubjectId &&

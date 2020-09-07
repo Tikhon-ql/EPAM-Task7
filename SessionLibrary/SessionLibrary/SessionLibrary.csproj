@@ -56,6 +56,8 @@
     <Compile Include="Excel\DataClasses\Abstract\DataClass.cs" />
     <Compile Include="Excel\DataClasses\AverageMarkByExaminer.cs" />
     <Compile Include="Excel\DataClasses\AverageMarkBySpecification.cs" />
+    <Compile Include="Excel\DataClasses\AverageMarkBySubject.cs" />
+    <Compile Include="Excel\DataClasses\AverageMarksBySubjectsInOneYear.cs" />
     <Compile Include="Excel\DataClasses\DropoutStudent.cs" />
     <Compile Include="Excel\DataClasses\DropOutStudentsByGroup.cs" />
     <Compile Include="Excel\DataClasses\GroupResult.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Excel\Models\AllGroupsAvgMaxMinGetter.cs" />
     <Compile Include="Excel\Models\AverageMarkByExaminerGetter.cs" />
     <Compile Include="Excel\Models\AverageMarkBySpecificationGetter.cs" />
+    <Compile Include="Excel\Models\AverageMarksBySubjectsGetter.cs" />
     <Compile Include="Excel\Models\ExcelWorker.cs" />
     <Compile Include="Excel\Models\DropoutStudentsGetter.cs" />
     <Compile Include="Excel\Models\SessionResultGetter.cs" />

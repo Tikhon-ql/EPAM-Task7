@@ -76,19 +76,20 @@ namespace SessionLibrary.Excel.Models
                 }
                 results.Add(result);
             }
+            List<GroupResult> res = new List<GroupResult>();
             if (stype == SortType.Ascending)
             {
                 foreach (GroupResult item in results)
                 {
-                    item.StudentResults.OrderBy(func);
+                    res.Add(new GroupResult(item.GroupName, item.StudentResults.OrderBy(func).ToList()));
                 }
             }
             else
                 foreach (GroupResult item in results)
                 {
-                    item.StudentResults.OrderByDescending(func);
+                    res.Add(new GroupResult(item.GroupName, item.StudentResults.OrderByDescending(func).ToArray()));
                 }
-            return results;
+            return res;
         }
     }
 }

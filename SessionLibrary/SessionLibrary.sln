@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{6B50
 	ProjectSection(SolutionItems) = preProject
 		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkByExaminer.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkByExaminer.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySpecification.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySpecification.xlsx
+		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySubject.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySubject.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\DropoutStudents.xlsx = SessionLIbraryExcel.Tests\bin\Debug\DropoutStudents.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMax.xlsx = SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMax.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\SessionResults.xlsx = SessionLIbraryExcel.Tests\bin\Debug\SessionResults.xlsx
@@ -28,6 +29,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{6B50
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SortedReports", "SortedReports", "{82350EC8-AEF4-4DA5-AFFF-D5EF8FE94A0D}"
 	ProjectSection(SolutionItems) = preProject
+		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkByExaminerWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkByExaminerWithSorting.xlsx
+		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySpecificationWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySpecificationWithSorting.xlsx
+		SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySubjectWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\AverageMarkBySubjectWithSorting.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\DropoutStudentsAscendingWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\DropoutStudentsAscendingWithSorting.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMaxWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMaxWithSorting.xlsx
 		SessionLIbraryExcel.Tests\bin\Debug\SessionResultsWithSorting.xlsx = SessionLIbraryExcel.Tests\bin\Debug\SessionResultsWithSorting.xlsx
