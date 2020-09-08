@@ -7,11 +7,20 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.ORM.Another
 {
+    /// <summary>
+    /// Specification class
+    /// </summary>
     [Table(Name = "Specification")]
     public class Specification
     {
+        /// <summary>
+        /// Specification's id property
+        /// </summary>
         [Column(IsPrimaryKey = true)]
         public int Id { get; set; }
+        /// <summary>
+        /// Specification's name property
+        /// </summary>
         [Column(Name = "SpecificationName")]
         public string SpecificationName { get; set; }
 

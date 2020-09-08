@@ -13,9 +13,15 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.Models
 {
+    /// <summary>
+    /// The class, that provide average marks by subject
+    /// </summary>
     public class AverageMarksBySubjectsGetter : DataClass
     {
         public AverageMarksBySubjectsGetter(string connect):base(connect){  }
+        /// <summary>
+        /// Get list of average marks method
+        /// </summary>
         public ICollection<AverageMarksBySubjectsInOneYear> GetAverageMarks()
         {
             List<AverageMarksBySubjectsInOneYear> result = new List<AverageMarksBySubjectsInOneYear>();
@@ -47,6 +53,12 @@ namespace SessionLibrary.Excel.Models
             }
             return result;
         }
+        /// <summary>
+        /// Get list of average marks method
+        /// </summary>
+        /// <param name="func">Property for sorting</param>
+        /// <param name="type">Sorting type</param>
+        /// <returns></returns>
         public ICollection<AverageMarksBySubjectsInOneYear> GetAverageMarks(Func<AverageMarkBySubject,object> func,SortType type)
         {
             List<AverageMarksBySubjectsInOneYear> result = new List<AverageMarksBySubjectsInOneYear>();

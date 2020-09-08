@@ -13,9 +13,16 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.Models
 {
+    /// <summary>
+    /// The class, that provide average marks by examiner
+    /// </summary>
     public class AverageMarkByExaminerGetter:DataClass
     {
         public AverageMarkByExaminerGetter(string connect):base(connect) { }
+        /// <summary>
+        /// Get list of average marks method
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<AverageMarkByExaminer> GetAverageMark(int sesId)
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
@@ -52,6 +59,13 @@ namespace SessionLibrary.Excel.Models
             }
             return results;
         }
+        /// <summary>
+        /// Get sorted list of average marks method with
+        /// </summary>
+        /// <param name="sesId">Session's id</param>
+        /// <param name="func">Property for sorting</param>
+        /// <param name="type">Sorting type</param>
+        /// <returns></returns>
         public IEnumerable<AverageMarkByExaminer> GetAverageMark(int sesId,Func<AverageMarkByExaminer,object> func,SortType type)
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
