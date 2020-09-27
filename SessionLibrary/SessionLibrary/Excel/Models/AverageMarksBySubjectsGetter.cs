@@ -28,25 +28,24 @@ namespace SessionLibrary.Excel.Models
             foreach(Session ses in Sessions)
             {
                 AverageMarksBySubjectsInOneYear oneYear = new AverageMarksBySubjectsInOneYear();
-                oneYear.Year = ses.AcademicYear;
-                foreach(IGrouping<int, SessionShedule> shedule in SessionShedules.Where(s => s.SessionId == ses.Id).GroupBy(s => s.SubjectId).AsEnumerable())
+                oneYear.Year = ses.AcademicYears;
+                foreach (Subject item in Subjects)
                 {
-                    List<WorkResult> wresults = WorkResults.Where(w => w.SubjectId == shedule.ElementAt(0).SubjectId).ToList();
+                    List<WorkResult> wresults = WorkResults.Where(w => w.SubjectId == item.Id).ToList();
                     double sum = 0;
-                    Subject currentSubject = Subjects.FirstOrDefault(s=>s.Id == shedule.ElementAt(0).SubjectId);
                     int count = 0;
-                    foreach(WorkResult res in wresults)
+                    foreach (WorkResult res in wresults)
                     {
-                        if(int.TryParse(res.Result,out int a))
+                        if (int.TryParse(res.Result, out int a))
                         {
                             sum += a;
                             count++;
                         }
                     }
-                    if(count != 0)
+                    if (count != 0)
                     {
                         double average = sum / count;
-                        oneYear.AverageMarks.Add(new AverageMarkBySubject(currentSubject.SubjectName, Math.Round(average, 2)));
+                        oneYear.AverageMarks.Add(new AverageMarkBySubject(item.SubjectName, Math.Round(average, 2)));
                     }
                 }
                 result.Add(oneYear);
@@ -65,12 +64,11 @@ namespace SessionLibrary.Excel.Models
             foreach (Session ses in Sessions)
             {
                 AverageMarksBySubjectsInOneYear oneYear = new AverageMarksBySubjectsInOneYear();
-                oneYear.Year = ses.AcademicYear;
-                foreach (IGrouping<int, SessionShedule> shedule in SessionShedules.Where(s => s.SessionId == ses.Id).GroupBy(s => s.SubjectId).AsEnumerable())
+                oneYear.Year = ses.AcademicYears;
+                foreach (Subject item in Subjects)
                 {
-                    List<WorkResult> wresults = WorkResults.Where(w => w.SubjectId == shedule.ElementAt(0).SubjectId).ToList();
+                    List<WorkResult> wresults = WorkResults.Where(w => w.SubjectId == item.Id).ToList();
                     double sum = 0;
-                    Subject currentSubject = Subjects.FirstOrDefault(s => s.Id == shedule.ElementAt(0).SubjectId);
                     int count = 0;
                     foreach (WorkResult res in wresults)
                     {
@@ -83,7 +81,7 @@ namespace SessionLibrary.Excel.Models
                     if (count != 0)
                     {
                         double average = sum / count;
-                        oneYear.AverageMarks.Add(new AverageMarkBySubject(currentSubject.SubjectName, Math.Round(average, 2)));
+                        oneYear.AverageMarks.Add(new AverageMarkBySubject(item.SubjectName, Math.Round(average, 2)));
                     }
                 }
                 result.Add(oneYear);

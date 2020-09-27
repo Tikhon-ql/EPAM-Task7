@@ -89,6 +89,7 @@ namespace SessionLibrary._DAO.Models
                         gn.StudentId = value.StudentId;
                         gn.SubjectId = value.SubjectId;
                         gn.WorkTypeId = value.WorkTypeId;
+                        gn.SessionSheduleId = value.SessionSheduleId;
                         db.SubmitChanges();
                     }
                 }

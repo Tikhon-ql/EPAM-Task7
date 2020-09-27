@@ -174,8 +174,8 @@ namespace SessionLibrary.Excel.Models
         }
         public static bool Write(string filename, ICollection<AverageMarkByExaminer> collection)
         {
-            try
-            {
+            //try
+            //{
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
                 package.Workbook.Properties.Title = "Average mark by examiner";
@@ -196,11 +196,11 @@ namespace SessionLibrary.Excel.Models
                 FileInfo fi = new FileInfo(filename);
                 package.SaveAs(fi);
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
         public static bool Write(string filename, ICollection<AverageMarksBySubjectsInOneYear> collection)
         {

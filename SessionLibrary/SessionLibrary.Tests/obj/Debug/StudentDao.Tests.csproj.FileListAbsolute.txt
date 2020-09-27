@@ -1,0 +1,4 @@
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary.Tests\obj\Debug\StudentDao.Tests.csprojAssemblyReference.cache
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary.Tests\obj\Debug\StudentDao.Tests.csproj.CoreCompileInputs.cache
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary.Tests\obj\Debug\SessionLibrary.Tests.dll
+D:\Тихон\Git\EPAM-Task7\SessionLibrary\SessionLibrary.Tests\obj\Debug\SessionLibrary.Tests.pdb

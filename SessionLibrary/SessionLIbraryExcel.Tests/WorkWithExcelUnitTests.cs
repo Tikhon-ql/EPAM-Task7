@@ -13,16 +13,10 @@ namespace SessionLIbraryExcel.Tests
     [TestClass]
     public class WorkWithExcelUnitTests
     {
-       /// <summary>
-       /// Connection string
-       /// </summary>
-        static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-        static WorkWithExcelUnitTests()
-        {
-            builder.DataSource = @"(localdb)\mssqllocaldb";
-            builder.InitialCatalog = @"SessionLibrary";
-            builder.IntegratedSecurity = true;
-        }
+        /// <summary>
+        /// Connection string
+        /// </summary>
+        string connectionString = @"Data Source = DESKTOP-7D5VMQO\SQLEXPRESS;Initial Catalog = SessionLibrary_7; Integrated Security = True;";
         /// <summary>
         /// Checing excle worker write students results method
         /// </summary>
@@ -30,7 +24,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteSessionResults()
         {
             //arrange
-            SessionResultGetter getter = new SessionResultGetter(builder.ConnectionString);
+            SessionResultGetter getter = new SessionResultGetter(connectionString);
             List<GroupResult> results = getter.GetSessionResult(1).ToList<GroupResult>();
             //act
             bool flag = ExcelWorker.Write(@"SessionResults.xlsx",results);
@@ -41,7 +35,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteSessionResultsWithSortingByDateAscending()
         {
             //arrange
-            SessionResultGetter getter = new SessionResultGetter(builder.ConnectionString);
+            SessionResultGetter getter = new SessionResultGetter(connectionString);
             List<GroupResult> results = getter.GetSessionResult(1,(i) => i.StudentName,SortType.Ascending).ToList<GroupResult>();
             //act
             bool flag = ExcelWorker.Write(@"SessionResultsWithSorting.xlsx", results);
@@ -55,7 +49,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteGroupAvgMinMax()
         {
             //arrange
-            AllGroupsAvgMaxMinGetter getter = new AllGroupsAvgMaxMinGetter(builder.ConnectionString);
+            AllGroupsAvgMaxMinGetter getter = new AllGroupsAvgMaxMinGetter(connectionString);
             List<GroupsAvgMinMax> results = getter.GetGroupsAvgMinMax().ToList<GroupsAvgMinMax>();
             //act
             bool flag = ExcelWorker.Write(@"GroupAvgMinMax.xlsx",results);
@@ -66,7 +60,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteGroupAvgMinMaxWithSortingByMaxDescending()
         {
             //arrange
-            AllGroupsAvgMaxMinGetter getter = new AllGroupsAvgMaxMinGetter(builder.ConnectionString);
+            AllGroupsAvgMaxMinGetter getter = new AllGroupsAvgMaxMinGetter(connectionString);
             List<GroupsAvgMinMax> results = getter.GetGroupsAvgMinMax((i)=>i.Max,SortType.Descending).ToList<GroupsAvgMinMax>();
             //act
             bool flag = ExcelWorker.Write(@"GroupAvgMinMaxWithSorting.xlsx", results);
@@ -80,7 +74,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteDropOutStudents()
         {
             //arrange
-            DropoutStudentsGetter getter = new DropoutStudentsGetter(builder.ConnectionString);
+            DropoutStudentsGetter getter = new DropoutStudentsGetter(connectionString);
             List<DropOutStudentsByGroup> results = getter.GetExpelStudents().ToList<DropOutStudentsByGroup>();
             //act
             bool flag = ExcelWorker.Write(@"DropoutStudents.xlsx", results);
@@ -91,7 +85,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteWithSortingBySurnameAscendingDropOutStudents()
         {
             //arrange
-            DropoutStudentsGetter getter = new DropoutStudentsGetter(builder.ConnectionString);
+            DropoutStudentsGetter getter = new DropoutStudentsGetter(connectionString);
             List<DropOutStudentsByGroup> results = getter.GetExpelStudents((res) => res.Surname,SortType.Ascending).ToList<DropOutStudentsByGroup>();
             //act
             bool flag = ExcelWorker.Write(@"DropoutStudentsAscendingWithSorting.xlsx", results);
@@ -102,7 +96,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteAverageMarkBySpecification()
         {
             //arrange
-            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(builder.ConnectionString);
+            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(connectionString);
             List<AverageMarkBySpecification> results = getter.GetAverageMark(1).ToList();
             //act
             bool flag = ExcelWorker.Write(@"AverageMarkBySpecification.xlsx", results);
@@ -113,7 +107,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteWithSortingByAverageMarkAverageMarkBySpecification()
         {
             //arrange
-            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(builder.ConnectionString);
+            AverageMarkBySpecificationGetter getter = new AverageMarkBySpecificationGetter(connectionString);
             List<AverageMarkBySpecification> results = getter.GetAverageMark(1,i=>i.AverageMark,SortType.Ascending).ToList();
             //act
             bool flag = ExcelWorker.Write(@"AverageMarkBySpecificationWithSorting.xlsx", results);
@@ -124,7 +118,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteAverageMarkByExaminer()
         {
             //arrange
-            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(builder.ConnectionString);
+            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(connectionString);
             List<AverageMarkByExaminer> results = getter.GetAverageMark(1).ToList();
 
             //act
@@ -136,7 +130,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteWithSortingByAverageMarkAverageMarkByExaminer()
         {
             //arrange
-            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(builder.ConnectionString);
+            AverageMarkByExaminerGetter getter = new AverageMarkByExaminerGetter(connectionString);
             List<AverageMarkByExaminer> results = getter.GetAverageMark(1,i=>i.AverageMark,SortType.Descending).ToList();
 
             //act
@@ -148,7 +142,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteAverageMarkBySubject()
         {
             //arrange
-            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(builder.ConnectionString);
+            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(connectionString);
             List<AverageMarksBySubjectsInOneYear> results = getter.GetAverageMarks().ToList();
 
             //act
@@ -160,7 +154,7 @@ namespace SessionLIbraryExcel.Tests
         public void ExcelWriteWithSortingDescendingAverageMarkBySubject()
         {
             //arrange
-            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(builder.ConnectionString);
+            AverageMarksBySubjectsGetter getter = new AverageMarksBySubjectsGetter(connectionString);
             List<AverageMarksBySubjectsInOneYear> results = getter.GetAverageMarks(r=>r.AverageMark,SortType.Descending).ToList();
 
             //act

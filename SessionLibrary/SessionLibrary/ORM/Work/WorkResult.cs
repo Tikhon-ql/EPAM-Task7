@@ -34,18 +34,24 @@ namespace SessionLibrary.ORM.Work
         [Column(Name = "Result")]
         public string Result { get; set; }
         /// <summary>
-        /// Work type's id
+        /// Work type's id property
         /// </summary>
         [Column(Name = "WorkTypeId")]
         public int WorkTypeId { get; set; }
+        /// <summary>
+        /// Session shedule's id property
+        /// </summary>
+        [Column(Name = "SessionSheduleId")]
+        public int SessionSheduleId { get; set; }
 
-        public WorkResult(int id, string result,  int student, int subject, int workTypeId)
+        public WorkResult(int id, string result,  int student, int subject, int workTypeId,int sesShId)
         {
             Id = id;
             StudentId = student;
             SubjectId = subject;
             Result = result;
             WorkTypeId = workTypeId;
+            SessionSheduleId = sesShId;
         }
         public WorkResult()
         {
@@ -57,7 +63,8 @@ namespace SessionLibrary.ORM.Work
                    StudentId == result.StudentId &&
                    SubjectId == result.SubjectId &&
                    Result == result.Result &&
-                   WorkTypeId == result.WorkTypeId;
+                   WorkTypeId == result.WorkTypeId &&
+                   SessionSheduleId == result.SessionSheduleId;
         }
 
         public override int GetHashCode()
@@ -68,6 +75,7 @@ namespace SessionLibrary.ORM.Work
             hashCode = hashCode * -1521134295 + SubjectId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Result);
             hashCode = hashCode * -1521134295 + WorkTypeId.GetHashCode();
+            hashCode = hashCode * -1521134295 + SessionSheduleId.GetHashCode();
             return hashCode;
         }
     }

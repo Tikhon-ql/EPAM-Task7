@@ -87,10 +87,8 @@ namespace SessionLibrary._DAO.Models
                         gn.Id = value.Id;
                         gn.GroupId = value.GroupId;
                         gn.SessionId = value.SessionId;
-                        gn.SubjectId = value.SubjectId;
                         gn.ExaminerId = value.ExaminerId;
                         gn.Date = value.Date;
-                        gn.WorkTypeId = value.WorkTypeId;
                         db.SubmitChanges();
                     }
                 }

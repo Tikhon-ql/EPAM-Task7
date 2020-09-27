@@ -28,7 +28,7 @@ namespace SessionLibrary.Excel.Models
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
             List<SessionShedule> shedules = SessionShedules.Where(s => s.SessionId == currentSession.Id).ToList();
             List<AverageMarkByExaminer> results = new List<AverageMarkByExaminer>();
-            AverageMarkByExaminer.SetSessionName($"Session({currentSession.AcademicYear})");
+            AverageMarkByExaminer.SetSessionName($"Session({currentSession.AcademicYears})");
             foreach (SessionShedule item in shedules)
             {
                 List<Group> groups = Groups.Where(g => g.Id == item.GroupId).ToList();
@@ -71,7 +71,7 @@ namespace SessionLibrary.Excel.Models
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
             List<SessionShedule> shedules = SessionShedules.Where(s => s.SessionId == currentSession.Id).ToList();
             List<AverageMarkByExaminer> results = new List<AverageMarkByExaminer>();
-            AverageMarkByExaminer.SetSessionName($"Session({currentSession.AcademicYear})");
+            AverageMarkByExaminer.SetSessionName($"Session({currentSession.AcademicYears})");
             foreach (SessionShedule item in shedules)
             {
                 List<Group> groups = Groups.Where(g => g.Id == item.GroupId).ToList();

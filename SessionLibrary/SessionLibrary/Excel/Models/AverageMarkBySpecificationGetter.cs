@@ -26,32 +26,36 @@ namespace SessionLibrary.Excel.Models
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
             List<AverageMarkBySpecification> results = new List<AverageMarkBySpecification>();
-            AverageMarkBySpecification.SetSessionName($"Session({currentSession.AcademicYear})");
-            foreach (Group item in Groups)
+            AverageMarkBySpecification.SetSessionName($"Session({currentSession.AcademicYears})");
+            foreach(Specification spec in Specifications)
             {
-
-                List<WorkResult> groupResults = new List<WorkResult>();
-                List<Student> students = Students.Where(s => s.GroupId == item.Id).ToList();
-                foreach (Student stud in students)
+                List<Group> groups = Groups.Where(g => g.SpecificationId == spec.Id).ToList();
+                foreach (Group item in groups)
                 {
-                    List<WorkResult> workResults = WorkResults.Where(w => w.StudentId == stud.Id).ToList();
-                    foreach (WorkResult res in workResults)
+                    List<WorkResult> groupResults = new List<WorkResult>();
+                    List<Student> students = Students.Where(s => s.GroupId == item.Id).ToList();
+                    foreach (Student stud in students)
                     {
-                        if (res.WorkTypeId == 1)
+                        List<WorkResult> workResults = WorkResults.Where(w => w.StudentId == stud.Id).ToList();
+                        foreach (WorkResult res in workResults)
                         {
-                            groupResults.Add(res);
+                            if (res.WorkTypeId == 1)
+                            {
+                                groupResults.Add(res);
+                            }
                         }
                     }
+                    if (groupResults.Count != 0)
+                    {
+                        AverageMarkBySpecification average = new AverageMarkBySpecification();
+                        average.AverageMark = Math.Round(groupResults.Average(i => Convert.ToInt32(i.Result)), 2);
+                        average.Specifcation = Specifications.FirstOrDefault(s => s.Id == item.SpecificationId).SpecificationName;
+                        results.Add(average);
+                        groupResults.Clear();
+                    }
                 }
-                if (groupResults.Count != 0)
-                {
-                    AverageMarkBySpecification average = new AverageMarkBySpecification();
-                    average.AverageMark = Math.Round(groupResults.Average(i => Convert.ToInt32(i.Result)),2);
-                    average.Specifcation = Specifications.FirstOrDefault(s=>s.Id == item.SpecificationId).SpecificationName;
-                    results.Add(average);
-                    groupResults.Clear();
-                }     
             }
+           
             return results;
         }
         /// <summary>
@@ -65,7 +69,7 @@ namespace SessionLibrary.Excel.Models
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sesId);
             List<AverageMarkBySpecification> results = new List<AverageMarkBySpecification>();
-            AverageMarkBySpecification.SetSessionName($"Session({currentSession.AcademicYear})");
+            AverageMarkBySpecification.SetSessionName($"Session({currentSession.AcademicYears})");
             foreach (Group item in Groups)
             {
 

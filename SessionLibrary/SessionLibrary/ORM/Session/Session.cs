@@ -22,8 +22,8 @@ namespace SessionLibrary.ORM.Session
         /// <summary>
         /// Session's academic years property
         /// </summary>
-        [Column(Name = "AcademicYear")]
-        public string AcademicYear { get; set; }
+        [Column(Name = "AcademicYears")]
+        public string AcademicYears { get; set; }
         /// <summary>
         /// Session type's id property
         /// </summary>
@@ -37,14 +37,14 @@ namespace SessionLibrary.ORM.Session
         public Session(int id, int sessionTypeId, string academicYear)
         {
             Id = id;
-            AcademicYear = academicYear;
+            AcademicYears = academicYear;
             SessionTypeId = sessionTypeId;
         }
 
         public override bool Equals(object obj)
         {
             return obj is Session session &&
-                   AcademicYear == session.AcademicYear &&
+                   AcademicYears == session.AcademicYears &&
                    SessionTypeId == session.SessionTypeId;
         }
 
@@ -52,7 +52,7 @@ namespace SessionLibrary.ORM.Session
         {
             int hashCode = -1646005154;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AcademicYear);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AcademicYears);
             hashCode = hashCode * -1521134295 + SessionTypeId.GetHashCode();
             return hashCode;
         }
