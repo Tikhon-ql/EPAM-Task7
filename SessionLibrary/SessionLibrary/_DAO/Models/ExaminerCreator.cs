@@ -83,7 +83,6 @@ namespace SessionLibrary._DAO.Models
                         ex.MidleName = value.MidleName;
                         ex.Name = value.Name;
                         ex.Surname = value.Surname;
-                        
                         db.SubmitChanges();
                     } 
                 }

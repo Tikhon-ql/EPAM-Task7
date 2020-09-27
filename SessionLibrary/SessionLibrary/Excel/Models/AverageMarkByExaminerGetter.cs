@@ -31,30 +31,27 @@ namespace SessionLibrary.Excel.Models
             AverageMarkByExaminer.SetSessionName($"Session({currentSession.AcademicYears})");
             foreach (SessionShedule item in shedules)
             {
-                List<Group> groups = Groups.Where(g => g.Id == item.GroupId).ToList();
+                Group group = Groups.FirstOrDefault(g => g.Id == item.GroupId);
                 List<WorkResult> groupResults = new List<WorkResult>();
-                foreach(Group group in groups)
+                List<Student> students = Students.Where(s => s.GroupId == group.Id).ToList();
+                foreach (Student stud in students)
                 {
-                    List<Student> students = Students.Where(s => s.GroupId == item.Id).ToList();
-                    foreach (Student stud in students)
+                    List<WorkResult> workResults = WorkResults.Where(w => w.StudentId == stud.Id).ToList();
+                    foreach (WorkResult res in workResults)
                     {
-                        List<WorkResult> workResults = WorkResults.Where(w => w.StudentId == stud.Id).ToList();
-                        foreach (WorkResult res in workResults)
+                        if (res.WorkTypeId == 1)
                         {
-                            if (res.WorkTypeId == 1)
-                            {
-                                groupResults.Add(res);
-                            }
+                            groupResults.Add(res);
                         }
                     }
-                    if (groupResults.Count != 0)
-                    {
-                        AverageMarkByExaminer average = new AverageMarkByExaminer();
-                        average.AverageMark = Math.Round(groupResults.Average(i => Convert.ToInt32(i.Result)), 2);
-                        average.ExaminerName = Examiners.FirstOrDefault(s => s.Id == item.ExaminerId).Name;
-                        results.Add(average);
-                        groupResults.Clear();
-                    }
+                }
+                if (groupResults.Count != 0)
+                {
+                    AverageMarkByExaminer average = new AverageMarkByExaminer();
+                    average.AverageMark = Math.Round(groupResults.Average(i => Convert.ToInt32(i.Result)), 2);
+                    average.ExaminerName = Examiners.FirstOrDefault(s => s.Id == item.ExaminerId).Name;
+                    results.Add(average);
+                    groupResults.Clear();
                 }
             }
             return results;
