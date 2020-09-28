@@ -27,6 +27,10 @@ namespace SessionLibrary.DaoFactory.Models
         /// <summary>
         /// Instance of factory
         /// </summary>
+        private SessionFactory(string conStr)
+        {
+            connectionString = conStr;
+        }
         private static SessionFactory instance;
         /// <summary>
         /// Get factory's instance
@@ -37,8 +41,7 @@ namespace SessionLibrary.DaoFactory.Models
         {
             if(instance == null)
             {
-                instance = new SessionFactory();
-                connectionString = connectionStr;
+                instance = new SessionFactory(connectionStr);
                 return instance;
             }
             return instance;
